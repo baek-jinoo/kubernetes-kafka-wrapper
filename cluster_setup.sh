@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -ex
 
 PROJECT_ID=${PROJECT_ID:-quizlet-data-services}
 ZONE_ID=${ZONE_ID:-us-central1-c}
