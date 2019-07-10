@@ -43,7 +43,12 @@ kind: Service
 metadata:
   namespace: mysql-cluster
   name: mysql
+  annotations:
+    cloud.google.com/load-balancer-type: "Internal"
+  labels:
+    app: mysql
 spec:
+  type: LoadBalancer
   selector:
     app: mysql
   ports:

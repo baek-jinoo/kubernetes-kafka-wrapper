@@ -47,12 +47,14 @@ gcloud beta container --project "quizlet-data-services" \
   --node-locations ${NODE_LOCATIONS} \
   --network ${NETWORK} \
   --subnetwork ${SUBNETWORK} \
+  --cluster-ipv4-cidr=/20 \
+  --services-ipv4-cidr=/22
   --metadata disable-legacy-endpoints=true \
   --scopes "https://www.googleapis.com/auth/devstorage.read_only","https://www.googleapis.com/auth/logging.write","https://www.googleapis.com/auth/monitoring","https://www.googleapis.com/auth/servicecontrol","https://www.googleapis.com/auth/service.management.readonly","https://www.googleapis.com/auth/trace.append" \
   --num-nodes ${START_NUM_NODES_PER_POOL} \
   --enable-cloud-logging \
   --enable-cloud-monitoring \
-  --no-enable-ip-alias \
+  --enable-ip-alias \
   --enable-autoscaling \
   --min-nodes ${MIN_NODES_PER_POOL} \
   --max-nodes ${MAX_NODES_PER_POOL} \
