@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-PROJECT_ID=${PROJECT_ID:-quizlet-data-CI}
+PROJECT_ID=${PROJECT_ID:-quizlet-data-ci}
 ZONE_ID=${ZONE_ID:-us-central1-c}
 REGION_ID=${REGION_ID:-us-central1}
 CLUSTER_NAME=${CLUSTER_NAME:-cluster-name-1}
