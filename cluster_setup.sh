@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-PROJECT_ID=${PROJECT_ID:-quizlet-data-services}
+PROJECT_ID=${PROJECT_ID:-quizlet-data-CI}
 ZONE_ID=${ZONE_ID:-us-central1-c}
 REGION_ID=${REGION_ID:-us-central1}
 CLUSTER_NAME=${CLUSTER_NAME:-cluster-name-1}
@@ -15,7 +15,7 @@ then
   SSD_DISK_SIZE=80
   MIN_NODES_PER_POOL=1
   MAX_NODES_PER_POOL=5
-  START_NUM_NODES_PER_POOL=1
+  START_NUM_NODES_PER_POOL=2
   MAIN_POOL_MACHINE_TYPE="n1-standard-2"
   POOL_1_MACHINE_TYPE="n1-standard-4"
   NETWORK="projects/quizlet-data-services/global/networks/jin-experiment"
