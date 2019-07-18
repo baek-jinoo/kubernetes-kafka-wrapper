@@ -7,3 +7,6 @@
 [submodule "dockerfiles"]
 	path = dockerfiles
 	url = git@github.com:baek-jinoo/dockerfiles.git
+[submodule "cp-docker-images"]
+	path = cp-docker-images
+	url = git@github.com:baek-jinoo/cp-docker-images.git
