@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -ex
 
-PROJECT_ID=${PROJECT_ID:-quizlet-data-ci}
+PROJECT_ID=${PROJECT_ID:-quizlet-data-services}
 ZONE_ID=${ZONE_ID:-us-central1-c}
 REGION_ID=${REGION_ID:-us-central1}
 CLUSTER_NAME=${CLUSTER_NAME:-cluster-name-1}
@@ -39,6 +39,13 @@ gcloud config set compute/zone "$ZONE_ID"
 
   #--create-subnetwork name=${AUTO_SUBNET_NAME} \
   #--enable-private-endpoint \
+
+
+
+  #--enable-private-nodes \
+  #--enable-master-authorized-networks \
+  #--master-authorized-networks 10.128.0.0/20 \
+  #--master-ipv4-cidr "172.16.0.0/28" \
 gcloud beta container --project ${PROJECT_ID} \
   clusters create ${CLUSTER_NAME} \
   --region ${REGION_ID} \
@@ -58,12 +65,8 @@ gcloud beta container --project ${PROJECT_ID} \
   --num-nodes ${START_NUM_NODES_PER_POOL} \
   --enable-cloud-logging \
   --enable-cloud-monitoring \
-  --master-ipv4-cidr "172.16.0.0/28" \
   --enable-ip-alias \
-  --enable-private-nodes \
   --default-max-pods-per-node "110" \
-  --enable-master-authorized-networks \
-  --master-authorized-networks 10.128.0.0/20 \
   --enable-autoscaling \
   --min-nodes ${MIN_NODES_PER_POOL} \
   --max-nodes ${MAX_NODES_PER_POOL} \
