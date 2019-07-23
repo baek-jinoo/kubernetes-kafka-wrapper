@@ -13,8 +13,8 @@ curl -L https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.12
   | kubectl -n kafka apply -f -
 
 
-BROKER_REPLICAS_COUNT=3
-ZOOKEEPER_REPLICAS_COUNT=3
+BROKER_REPLICAS_COUNT=${BROKER_REPLICAS_COUNT:-3}
+ZOOKEEPER_REPLICAS_COUNT=${ZOOKEEPER_REPLICAS_COUNT:-3}
 
 kubectl apply -n kafka -f -<<EOF
 apiVersion: kafka.strimzi.io/v1beta1
