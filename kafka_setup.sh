@@ -1,15 +1,20 @@
 #!/usr/bin/env bash
 set -ex
 
-kubectl create namespace kafka
+kubectl apply -f -<<EOF
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kafka
+EOF
 
 curl -L https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.12.1/strimzi-cluster-operator-0.12.1.yaml \
   | sed 's/namespace: .*/namespace: kafka/' \
   | kubectl -n kafka apply -f -
 
 
-BROKER_REPLICAS_COUNT=5
-ZOOKEEPER_REPLICAS_COUNT=5
+BROKER_REPLICAS_COUNT=3
+ZOOKEEPER_REPLICAS_COUNT=3
 
 kubectl apply -n kafka -f -<<EOF
 apiVersion: kafka.strimzi.io/v1beta1
