@@ -74,7 +74,7 @@ gcloud beta container --project ${PROJECT_ID} \
   --enable-autorepair \
   --maintenance-window "10:00" \
   && gcloud beta container --project ${PROJECT_ID} \
-  node-pools create "pool-1" \
+  node-pools create "kafka-node-pool" \
   --cluster ${CLUSTER_NAME} \
   --region ${REGION_ID} \
   --node-version "1.12.8-gke.10" \
